@@ -1,0 +1,95 @@
+body {
+  background-color: #0D1117;
+  color: #38BDAE;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content .form {
+  width: 60%;
+  margin: 2em;
+  padding: 2em;
+
+  border: 3px solid #1A1B27;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: linear-gradient(90deg, #2c394d 0%, #1A1B27 100%);
+  box-shadow: 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.content .form .title {
+  font-size: 2em;
+  font-weight: 500;
+  color: #6FA4FC;
+
+  padding: 1em;
+}
+
+.content .form .fields {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 0.5em;
+}
+
+.content .form .fields .label {
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.content .form .fields .input {
+  height: 30px;
+
+  border-radius: 5px;
+  border: none;
+  background: linear-gradient(90deg, #334155 0%, #8db4ca 100%);
+
+  color: #6FA4FC;
+  font-size: 14px;
+  font-weight: 600;
+
+  appearance: textfield;
+}
+
+.content .form .fields .input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.content .form .fields .input:focus {
+  outline: none;
+}
+
+.content .form .fields .info {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.content .form .button-submit {
+  margin-top: 15px;
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6FA4FC;
+
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+
+  cursor: pointer;
+}
