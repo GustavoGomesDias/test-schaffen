@@ -10,7 +10,7 @@ const splitPoints = (pointsContent: string): undefined | string[] => {
   return pointsSpliteds;
 }
 
-const returnRobotPosition = (positionContent: string): undefined | IrrigationPoint => {
+const returnRobotPosition = (positionContent: string): undefined | CartesianPoint => {
   const positionSplited = splitPoints(positionContent);
 
   if (positionSplited === undefined) {
@@ -23,7 +23,7 @@ const returnRobotPosition = (positionContent: string): undefined | IrrigationPoi
   };
 }
 
-const returnIrrigationPoints = (pointContent: string): undefined | IrrigationPoint[] => {
+const returnIrrigationPoints = (pointContent: string): undefined | CartesianPoint[] => {
 
   const pointsSpliteds = splitPoints(pointContent);
   
@@ -31,10 +31,10 @@ const returnIrrigationPoints = (pointContent: string): undefined | IrrigationPoi
     return undefined;
   }
 
-  let irrigationPointsCoordinetes: IrrigationPoint[] = [];
+  let irrigationPointsCoordinetes: CartesianPoint[] = [];
 
   for (let i = 0; i < pointsSpliteds.length; i += 2) {
-    const pointer: IrrigationPoint = {
+    const pointer: CartesianPoint = {
       x: Number(pointsSpliteds[i]),
       y: Number(pointsSpliteds[i + 1]),
     }
@@ -46,19 +46,19 @@ const returnIrrigationPoints = (pointContent: string): undefined | IrrigationPoi
 
 }
 
-const getHighestValueInX= (irrigationPoints: IrrigationPoint[]): number => {
+const getHighestValueInX= (irrigationPoints: CartesianPoint[]): number => {
   const xValues: number[] = irrigationPoints.map((point) => point.x);
   const highestValueInX = Math.max.apply(null, xValues);
   return highestValueInX;
 }
 
-const getHighestValueInY= (irrigationPoints: IrrigationPoint[]): number => {
+const getHighestValueInY= (irrigationPoints: CartesianPoint[]): number => {
   const yValues: number[] = irrigationPoints.map((point) => point.y);
   const highestValueInY = Math.max.apply(null, yValues);
   return highestValueInY;
 }
 
-const checkIfItIsGreaterThanXorY = (irrigationPoints: IrrigationPoint[], garden: Garden): boolean => {
+const checkIfItIsGreaterThanXorY = (irrigationPoints: CartesianPoint[], garden: Garden): boolean => {
   const highestValueInX = getHighestValueInX(irrigationPoints);
   const highestValueInY = getHighestValueInY(irrigationPoints);
 

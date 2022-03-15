@@ -29,6 +29,16 @@
           <span>Exemplo: (4, 3)</span>
         </div>
       </div>
+        <div class="fields">
+        <label for="select" class="label">Para onde o robo está virado:</label>
+        <select id="select" class="select">
+          <option value="N" selected>N</option>
+          <option value="S">S</option>
+          <option value="L">L</option>
+          <option value="O">O</option>
+        </select>
+      </div>
+
       <div class="fields">
         <label for="positions" class="label">Posições em que se deseja enrigar:</label>
         <input type="text" id="positions" name="positions" class="input">
@@ -42,6 +52,7 @@
   </div>
 </body>
 <script src="public/js/Garden.js"></script>
+<script src="public/js/Robot.js"></script>
 <script src="public/js/helpers/helpers.js"></script>
 <script src="public/js/app.js"></script>
 </html>
