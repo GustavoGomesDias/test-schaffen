@@ -20,12 +20,21 @@
         <label for="y-size" class="label">Tamanho na posição Y:</label>
         <input type="number" id="y-size" name="y-size" class="input">
       </div>
+
+      <div class="fields">
+        <label for="robotPosition" class="label">Posição inicial do robo:</label>
+        <input type="tex" id="robotPosition" name="robotPosition" class="input">
+        <div class="info">
+          <span>ATENÇÃO: Informe como  ponto cartesianos (X, Y) e apenas 1, por favor.</span>
+          <span>Exemplo: (4, 3)</span>
+        </div>
+      </div>
       <div class="fields">
         <label for="positions" class="label">Posições em que se deseja enrigar:</label>
         <input type="text" id="positions" name="positions" class="input">
         <div class="info">
-          <span>ATENÇÃO: Informe como  pontos cartesianos (X, Y) separados por espaço, por favor.</span>
-          <span>Exemplo: (4, 3) (5, 6)</span>
+          <span>ATENÇÃO: Informe como  pontos cartesianos (X, Y) separados por vírgula, por favor.</span>
+          <span>Exemplo: (4, 3), (5, 6)</span>
         </div>
       </div>
       <button type="submit" class="button-submit">Irrigar</button>
@@ -33,6 +42,6 @@
   </div>
 </body>
 <script src="public/js/Garden.js"></script>
-<script src="public/js/helpers/splitPoints.js"></script>
+<script src="public/js/helpers/helpers.js"></script>
 <script src="public/js/app.js"></script>
 </html>

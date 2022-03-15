@@ -7,12 +7,11 @@ class Garden {
   private readonly horizontalSize: number;
   private readonly verticalSize: number;
 
-  private  irrigationPoints: IrrigationPoint[];
+  private irrigationPoints: IrrigationPoint[] = [];
 
-  constructor(horizontalSize: number, verticalSize: number, irrigationPoints: IrrigationPoint[]) {
+  constructor(horizontalSize: number, verticalSize: number) {
     this.horizontalSize = horizontalSize;
     this.verticalSize = verticalSize;
-    this.irrigationPoints = irrigationPoints;
   }
 
 
@@ -27,4 +26,9 @@ class Garden {
   get getIrrigationPoints(): IrrigationPoint[] {
     return this.irrigationPoints;
   }
+
+  set setIrrigationPoints(irrigationPoints: IrrigationPoint[]) {
+    this.irrigationPoints = irrigationPoints;
+  }
+
 }

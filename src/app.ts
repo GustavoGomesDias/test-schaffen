@@ -5,19 +5,22 @@ function handleSubmit(e: Event): void {
   const horizontalSize = document.querySelector('#x-size') as HTMLInputElement;
   const verticalSize = document.querySelector('#y-size') as HTMLInputElement;
   const coordinates = document.querySelector("#positions") as HTMLInputElement;
+  const robotPosition = document.querySelector('#robotPosition') as HTMLInputElement;
 
-  const irrigationPointsCoordinates = splitPoints(coordinates.value);
+  const irrigationPointsCoordinates = returnIrrigationPoints(coordinates.value);
+  const garden = new Garden(Number(horizontalSize.value), Number(verticalSize.value));
 
-  console.log(irrigationPointsCoordinates);
   if (irrigationPointsCoordinates === undefined || irrigationPointsCoordinates === []) {
-    alert('Pontos de Irrigação inválidos. [2]');
+    alert('Pontos de Irrigação inválidos.');
     return;
   }
 
-  const garden = new Garden(Number(horizontalSize.value), Number(verticalSize.value), irrigationPointsCoordinates as IrrigationPoint[]);
+  if (!checkIfItIsGreaterThanXorY(irrigationPointsCoordinates, garden)) {
+    alert('Pontos de irrigação devem ser menores que os valores de X e Y');
+    return;
+  }
 
-  console.log(garden.getIrrigationPoints);
-  // alert(`${garden.getHorizontalSize}, ${garden.getVerticalSize}`);
+  garden.setIrrigationPoints = irrigationPointsCoordinates;
 }
 
 form.addEventListener('submit', handleSubmit)
