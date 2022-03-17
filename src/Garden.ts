@@ -1,4 +1,4 @@
-type CartesianPoint = {
+interface CartesianPoint {
   x: number
   y: number
 }

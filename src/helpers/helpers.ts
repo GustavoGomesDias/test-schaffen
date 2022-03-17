@@ -23,48 +23,55 @@ const returnRobotPosition = (positionContent: string): undefined | CartesianPoin
   };
 }
 
-const returnIrrigationPoints = (pointContent: string): undefined | CartesianPoint[] => {
+const calculateDifference = (irrigation: number, robot: number) => {
+  const result = irrigation - robot;
 
-  const pointsSpliteds = splitPoints(pointContent);
-  
-  if (pointsSpliteds === undefined) {
-    return undefined;
+  if (result < 0) {
+    result * (-1);
   }
 
-  let irrigationPointsCoordinetes: CartesianPoint[] = [];
+  return result;
+}
 
-  for (let i = 0; i < pointsSpliteds.length; i += 2) {
-    const pointer: CartesianPoint = {
-      x: Number(pointsSpliteds[i]),
-      y: Number(pointsSpliteds[i + 1]),
+const getLongestWwaySize = (irrigationPoints: CartesianPoint[], robot: Robot): number => {
+
+  let count: number = 0;
+  let pointPos: number = 0;
+  let waySize: number = 0;
+  for (const point of irrigationPoints) {
+    const calcDifferenceInX = calculateDifference(point.x, robot.getInitialPosition.x);
+    const calcDifferenceInY = calculateDifference(point.y, robot.getInitialPosition.y);
+    const difference = calcDifferenceInX + calcDifferenceInY;
+    
+    if (difference > waySize) {
+      pointPos = count;
     }
 
-    irrigationPointsCoordinetes.push(pointer);
+    count++;
   }
 
-  return irrigationPointsCoordinetes;
+  return pointPos;
 
 }
+const getShortestWwaySize = (irrigationPoints: CartesianPoint[], robot: Robot): number => {
 
-const getHighestValueInX= (irrigationPoints: CartesianPoint[]): number => {
-  const xValues: number[] = irrigationPoints.map((point) => point.x);
-  const highestValueInX = Math.max.apply(null, xValues);
-  return highestValueInX;
-}
+  const calcInitialDifferenceInX = calculateDifference(irrigationPoints[0].x, robot.getInitialPosition.x);
+  const calcInitialDifferenceInY = calculateDifference(irrigationPoints[0].y, robot.getInitialPosition.y);
+ 
+  let count: number = 0;
+  let pointPos: number = 0;
+  let waySize: number = calcInitialDifferenceInX + calcInitialDifferenceInY;
+  for (const point of irrigationPoints) {
+    const calcDifferenceInX = calculateDifference(point.x, robot.getInitialPosition.x);
+    const calcDifferenceInY = calculateDifference(point.y, robot.getInitialPosition.y);
+    const difference = calcDifferenceInX + calcDifferenceInY;
+    
+    if (difference < waySize) {
+      pointPos = count;
+    }
 
-const getHighestValueInY= (irrigationPoints: CartesianPoint[]): number => {
-  const yValues: number[] = irrigationPoints.map((point) => point.y);
-  const highestValueInY = Math.max.apply(null, yValues);
-  return highestValueInY;
-}
-
-const checkIfItIsGreaterThanXorY = (irrigationPoints: CartesianPoint[], garden: Garden): boolean => {
-  const highestValueInX = getHighestValueInX(irrigationPoints);
-  const highestValueInY = getHighestValueInY(irrigationPoints);
-
-  if (highestValueInX > garden.getHorizontalSize || highestValueInY > garden.getVerticalSize) {
-    return false;
+    count++;
   }
 
-  return true;
+  return pointPos;
 }

@@ -30,6 +30,7 @@ function handleCreateRobot(): undefined | Robot {
   }
 
   const robot = new Robot(initialPosition, select.value as Direction);
+  return robot;
 }
 
 function handleSubmit(e: Event): void {
@@ -37,6 +38,11 @@ function handleSubmit(e: Event): void {
   const garden = handleCreateGarden();
   const irrigationPointsCoordinates = handleCreateIrrigationPoints();
   if (irrigationPointsCoordinates === undefined) {
+    return;
+  }
+
+  if (irrigationPointsCoordinates.length > (garden.getHorizontalSize * garden.getVerticalSize)) {
+    alert('Existe mais pontos de irrigação do que campos de horta!');
     return;
   }
 
