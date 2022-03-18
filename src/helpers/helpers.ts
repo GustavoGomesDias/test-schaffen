@@ -39,14 +39,14 @@ const getLongestWwaySize = (irrigationPoints: CartesianPoint[], robot: Robot): n
   let pointPos: number = 0;
   let waySize: number = 0;
   for (const point of irrigationPoints) {
-    const calcDifferenceInX = calculateDifference(point.x, robot.getInitialPosition.x);
-    const calcDifferenceInY = calculateDifference(point.y, robot.getInitialPosition.y);
+    const calcDifferenceInX = calculateDifference(point.x, robot.getActuallPosition.x);
+    const calcDifferenceInY = calculateDifference(point.y, robot.getActuallPosition.y);
     const difference = calcDifferenceInX + calcDifferenceInY;
     
     if (difference > waySize) {
       pointPos = count;
+      waySize = difference;
     }
-
     count++;
   }
 
@@ -55,19 +55,20 @@ const getLongestWwaySize = (irrigationPoints: CartesianPoint[], robot: Robot): n
 }
 const getShortestWwaySize = (irrigationPoints: CartesianPoint[], robot: Robot): number => {
 
-  const calcInitialDifferenceInX = calculateDifference(irrigationPoints[0].x, robot.getInitialPosition.x);
-  const calcInitialDifferenceInY = calculateDifference(irrigationPoints[0].y, robot.getInitialPosition.y);
+  const calcInitialDifferenceInX = calculateDifference(irrigationPoints[0].x, robot.getActuallPosition.x);
+  const calcInitialDifferenceInY = calculateDifference(irrigationPoints[0].y, robot.getActuallPosition.y);
  
   let count: number = 0;
   let pointPos: number = 0;
   let waySize: number = calcInitialDifferenceInX + calcInitialDifferenceInY;
   for (const point of irrigationPoints) {
-    const calcDifferenceInX = calculateDifference(point.x, robot.getInitialPosition.x);
-    const calcDifferenceInY = calculateDifference(point.y, robot.getInitialPosition.y);
+    const calcDifferenceInX = calculateDifference(point.x, robot.getActuallPosition.x);
+    const calcDifferenceInY = calculateDifference(point.y, robot.getActuallPosition.y);
     const difference = calcDifferenceInX + calcDifferenceInY;
     
     if (difference < waySize) {
       pointPos = count;
+      waySize = difference;
     }
 
     count++;

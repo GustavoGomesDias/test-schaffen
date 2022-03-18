@@ -59,6 +59,10 @@ function handleSubmit(e: Event): void {
     return;
   }
 
+  garden.irrigate(robot);
+
+  console.log(robot.getListOfActions);
+
 }
 
 form.addEventListener('submit', handleSubmit)
