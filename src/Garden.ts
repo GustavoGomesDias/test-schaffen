@@ -32,17 +32,19 @@ class Garden {
   }
 
   irrigate(robot: Robot) {
-    const longestWayPos = getLongestWwaySize(this.irrigationPoints, robot);
+    // const longestWayPos = getLongestWwaySize(this.irrigationPoints, robot);
 
-    robot.handleRobotMovimentY(this.irrigationPoints[longestWayPos])
-    robot.handleRobotMovimentX(this.irrigationPoints[longestWayPos]);
-    this.irrigationPoints.splice(longestWayPos, 1);
-    this.setIrrigationPoints = this.irrigationPoints;
+    // robot.handleRobotMovimentY(this.irrigationPoints[longestWayPos]);
+    // robot.handleRobotMovimentX(this.irrigationPoints[longestWayPos]);
+    // this.irrigationPoints.splice(longestWayPos, 1);
+    // this.setIrrigationPoints = this.irrigationPoints;
 
     while (this.irrigationPoints.length > 0) {
       const shortestWayPos = getShortestWwaySize(this.irrigationPoints, robot);
-      robot.handleRobotMovimentY(this.irrigationPoints[shortestWayPos])
+     
+      robot.handleRobotMovimentY(this.irrigationPoints[shortestWayPos]);
       robot.handleRobotMovimentX(this.irrigationPoints[shortestWayPos]);
+     
       this.irrigationPoints.splice(shortestWayPos, 1);
       this.setIrrigationPoints = this.irrigationPoints;
     }
