@@ -2,7 +2,7 @@ const numberRegex = /^[0-9]+$/;
 
 const splitPoints = (pointsContent: string): undefined | string[] => {
   if (numberRegex.test(pointsContent)) {
-    alert('Pontos de irrigações inválidos. Não há números.');
+    handleRenderErrorOverlay('Pontos de irrigações inválidos. Não há números.')
     return undefined;
   }
 

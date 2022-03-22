@@ -1,0 +1,86 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  /* padding: 2em 0 0 0; */
+  border-radius: 5px;
+  box-shadow: 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.success {
+  background-color: #04E494;
+}
+
+.error {
+  background-color: #FF6961;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.6em;
+  color: #fff;
+  margin-top: 15px;
+}
+
+.time {
+  display: inline-block;
+  min-height: 5px;
+  margin-top: 15px;
+  /* background-color: black;
+  opacity: 0.3;
+  animation: timering 3s both; */
+}
+
+.img-container {
+  width: 7em;
+  height: 7em;
+}
+
+.close-button {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.close-button button {
+  margin: 0.3em;
+  cursor: pointer;
+  background: red;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.title {
+  width: 100%;
+  font-size: 2.5em;
+  /* color: #085238; */
+  text-align: center;
+}
+
+.title-error {
+  color: #ca1a11;
+}
+
+@keyframes timering {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0;
+  }
+}

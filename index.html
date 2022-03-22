@@ -5,10 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="public/css/reset.css">
+  <link rel="stylesheet" href="public/css/modal.css">
   <link rel="stylesheet" href="public/css/main.css">
   <title>Teste Lógico</title>
 </head>
 <body>
+  <div class="overlay">
+    <div class="container success">
+      <div class="close-button">
+        <button class="overlay-close-button">X</button>
+      </div>
+      <img src="" alt="" class="img-container">
+      <h3 class="title"></h3>
+      <p class="message"></p>
+      <span class="time"></span>
+    </div>
+  </div>
+
   <div class="content">
     <form action="#" class="form">
       <h1 class="title">Hortaliças e Hortaliças</h1>
@@ -56,5 +69,6 @@
 <script src="public/js/helpers/direction.js"></script>
 <script src="public/js/helpers/helpers.js"></script>
 <script src="public/js/helpers/points.js"></script>
+<script src="public/js/overlay.js"></script>
 <script src="public/js/app.js"></script>
 </html>
